@@ -1,9 +1,16 @@
 let input = document.getElementById("password");
 let button = document.querySelector(".btn");
 let copyBtn = document.querySelector(".copy");
-let copyIcon = copyBtn.querySelector("i")
+let copyIcon = copyBtn.querySelector("i");
+let value = document.getElementById("value");
+let lengthInput = document.getElementById("length-slider");
 
-let passwordLength = 10;
+let passwordLength = 6;
+
+lengthInput.addEventListener("input", (evt) => {
+  value.textContent = evt.target.value;
+   passwordLength = evt.target.value;
+});
 
 let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let lowerCase = "abcdefghijklmnopqrstuvwxyz";
@@ -38,5 +45,5 @@ copyBtn.addEventListener("click", async () => {
   setTimeout(() => {
     document.querySelector(".tooltiptext").innerHTML = "Copy";
     copyIcon.className = "fa-regular fa-copy";
-  }, 3000);
+  }, 2000);
 });
