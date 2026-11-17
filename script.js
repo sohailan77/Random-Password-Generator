@@ -1,5 +1,6 @@
 let input = document.getElementById("password");
 let button = document.querySelector(".btn");
+let copyBtn = document.querySelector(".copy");
 
 let passwordLength = 10;
 
@@ -21,7 +22,12 @@ let createPassword = () => {
     password += allChar[Math.floor(Math.random() * allChar.length)];
   }
   input.value = password;
-  
+
 };
 
 button.addEventListener("click", createPassword);
+
+copyBtn.addEventListener('click',() => {
+  navigator.clipboard.writeText(input.value);
+})
+
