@@ -1,0 +1,27 @@
+let input = document.getElementById("password");
+let button = document.querySelector(".btn");
+
+let passwordLength = 10;
+
+let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+let numbers = "0123456789";
+let specialChars = "!#$%&()*+,-./:;<=>?@[]^_{|}~";
+
+let allChar = upperCase + lowerCase + numbers + specialChars;
+
+let createPassword = () => {
+  let password = "";
+  password += upperCase[Math.floor(Math.random() * upperCase.length)];
+  password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+  password += numbers[Math.floor(Math.random() * numbers.length)];
+  password += specialChars[Math.floor(Math.random() * specialChars.length)];
+
+  while (passwordLength > password.length) {
+    password += allChar[Math.floor(Math.random() * allChar.length)];
+  }
+  input.value = password;
+  
+};
+
+button.addEventListener("click", createPassword);
