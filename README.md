@@ -10,8 +10,7 @@ A simple and user-friendly password generator that creates random passwords with
 
 ## 📸 Preview
 
-<!-- ![Random Password Generator Preview](web-image.png) -->
-[![Random Password Generator Preview](web-image.png)]([(https://sohailan77.github.io/Random-Password-Generator/)])
+[![Random Password Generator Preview](./web-image.png)](https://sohailan77.github.io/Random-Password-Generator/)
 
 ## ✨ Features
 
