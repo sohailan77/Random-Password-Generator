@@ -1,6 +1,7 @@
 let input = document.getElementById("password");
 let button = document.querySelector(".btn");
 let copyBtn = document.querySelector(".copy");
+let copyIcon = copyBtn.querySelector("i")
 
 let passwordLength = 10;
 
@@ -22,12 +23,20 @@ let createPassword = () => {
     password += allChar[Math.floor(Math.random() * allChar.length)];
   }
   input.value = password;
-
 };
 
 button.addEventListener("click", createPassword);
 
-copyBtn.addEventListener('click',() => {
-  navigator.clipboard.writeText(input.value);
-})
+copyBtn.addEventListener("click", async () => {
+  if (input.value === "") return;
 
+  await navigator.clipboard.writeText(input.value);
+
+  document.querySelector(".tooltiptext").innerHTML = "Copied!";
+  copyIcon.className = "fa-solid fa-check";
+
+  setTimeout(() => {
+    document.querySelector(".tooltiptext").innerHTML = "Copy";
+    copyIcon.className = "fa-regular fa-copy";
+  }, 3000);
+});
